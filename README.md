@@ -4,15 +4,17 @@
 
 ## 介绍
 
-本项目使用的项目[134355/min-request](https://github.com/134355/min-request)的网络请求代码，更多介绍请看原项目。
+本项目借鉴项目[134355/min-request](https://github.com/134355/min-request)的网络请求代码。
 
 本项目根据该项目的网络请求二次开发，分离接口，按需引入。在于解决uniapp项目网络请求问题，统一管理请求、拦截和接口。
+
+在本项目最新的更新中更改了原有的参数传入方式，实现了自动添加参数功能。
 
 
 
 ## 使用
 
-1. 项目中加入utils
+1. 项目中加入utils/
 
    ```bash
    mv utils <your-project>
@@ -52,10 +54,10 @@
    import request from "../utils/api";
    
    export function login(data) {
-     return request.post(
-       "/usr/login",
-       data
-     )
+     return request.post({
+     	url: "/user/login",
+       data: data
+     })
    }
    ```
 
@@ -83,3 +85,34 @@
    ```
 
    
+
+## 更多请求方式
+
+* 添加多个参数，如`token`等
+
+  ```javascript
+  import request from "../utils/api";
+  
+  export function delUser(token, uid, data) {
+    return request.post({
+    	url: "/user/login",
+      data: data,
+      params: {token, uid}
+    })
+  }
+  ```
+
+  ```javascript
+  ...
+  deluser(
+  	"假装是一个token", // token
+    12, //uid
+    {	// 这里只是为了演示强行加入data
+      username: "kuari",
+      password: "adminadmin"
+    }
+  )
+  ...
+  ```
+
+  

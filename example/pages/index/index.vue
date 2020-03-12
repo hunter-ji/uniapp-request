@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { login } from "../../api/user";
+import { delUser, login } from "../../api/user";
 
 export default {
   data() {
@@ -21,8 +21,15 @@ export default {
       "phone_number": "123123123",
       "verification_code": "123321"
     }).then(response => {
-      console.log(response)
-    })
+      console.log(response);
+    });
+
+    delUser("token", 1,
+      {
+        info: "info"
+      }).then(response => {
+      console.log(response);
+    });
   },
   methods: {}
 };
@@ -37,12 +44,12 @@ export default {
 }
 
 .logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
+  height: 200 rpx;
+  width: 200 rpx;
+  margin-top: 200 rpx;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50rpx;
+  margin-bottom: 50 rpx;
 }
 
 .text-area {
@@ -51,7 +58,7 @@ export default {
 }
 
 .title {
-  font-size: 36rpx;
+  font-size: 36 rpx;
   color: #8f8f94;
 }
 </style>

@@ -70,28 +70,62 @@ class Request {
     });
   }
 
-  get(url, data, options = {}) {
+  get({ url, data, params }, options = {}) {
     options.url = url;
+    if (params) {
+      options.url += "?";
+      const keys = Object.keys(params);
+      keys.forEach((item, index) => {
+        options.url += `${ item }=${ params[item] }`;
+        if (index < keys.length - 1) options.url += "&";
+      })
+    }
     options.data = data;
     options.method = "GET";
     return this.request(options);
   }
 
-  post(url, data, options = {}) {
+  post({ url, data, params }, options = {}) {
     options.url = url;
+    if (params) {
+      options.url += "?";
+      const keys = Object.keys(params);
+      keys.forEach((item, index) => {
+        options.url += `${ item }=${ params[item] }`;
+        if (index < keys.length - 1) options.url += "&";
+      })
+    }
     options.data = data;
     options.method = "POST";
     return this.request(options);
   }
 
-  put(url, data, options = {}) {
+  put({ url, data, params }, options = {}) {
+    options.url = url;
+    if (params) {
+      options.url += "?";
+      const keys = Object.keys(params);
+      keys.forEach((item, index) => {
+        options.url += `${ item }=${ params[item] }`;
+        if (index < keys.length - 1) options.url += "&";
+      })
+    }
     options.url = url;
     options.data = data;
     options.method = "PUT";
     return this.request(options);
   }
 
-  delete(url, data, options = {}) {
+  delete({ url, data, params }, options = {}) {
+    options.url = url;
+    if (params) {
+      options.url += "?";
+      const keys = Object.keys(params);
+      keys.forEach((item, index) => {
+        options.url += `${ item }=${ params[item] }`;
+        if (index < keys.length - 1) options.url += "&";
+      })
+    }
     options.url = url;
     options.data = data;
     options.method = "DELETE";
