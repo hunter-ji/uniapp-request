@@ -33,8 +33,8 @@
    // utils/api.js
    
    mRequest.setConfig(config => {
-     config.baseURL = "http://server-url";
-     return config;
+      config.baseURL = "http://server-url";
+      return config;
    });
    ```
 
@@ -54,10 +54,10 @@
    import request from "../utils/api";
    
    export function login(data) {
-     return request.post({
-     	url: "/user/login",
-       data: data
-     })
+      return request.post({
+         url: "/user/login",
+         data: data
+      })
    }
    ```
 
@@ -72,13 +72,13 @@
    import { login } from "../../api/user";
    
    export default {
-   	methods: {
-   		login({
-   			phone_number: "123123123",
-   			"verify_code": "123123"
-   		}).then(response => {
-   			console.log(response.data);
-   		})
+      methods: {
+         login({
+            phone_number: "123123123",
+            "verify_code": "123123"
+         }).then(response => {
+            console.log(response.data);
+         })
    	}
    }
    </script>
@@ -94,23 +94,23 @@
   import request from "../utils/api";
   
   export function delUser(token, uid, data) {
-    return request.post({
-    	url: "/user/delete",
-      data: data,
-      params: {token, uid}
-    })
+      return request.post({
+         url: "/user/delete",
+         data: data,
+         params: {token, uid}
+      })
   }
   ```
 
   ```javascript
   ...
   deluser(
-  	"tokenbalabala", // token
-    12, //uid
-    {	// 这里只是为了演示强行加入data
-      username: "kuari",
-      password: "adminadmin"
-    }
+      "tokenbalabala", // token
+      12, //uid
+      {	// 这里只是为了演示强行加入data
+         username: "kuari",
+         password: "adminadmin"
+      }
   )
   ...
   ```
