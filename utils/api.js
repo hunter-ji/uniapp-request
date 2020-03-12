@@ -43,7 +43,7 @@ mRequest.interceptors.response(response => {
 
 // 设置默认配置
 mRequest.setConfig(config => {
-  config.baseURL = "http://truejoblink.com:44445";
+  config.baseURL = "http://<your-url>";
   return config;
 });
 
