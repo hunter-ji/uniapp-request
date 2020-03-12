@@ -88,14 +88,14 @@
 
 ## 更多请求方式
 
-* 添加多个参数，如`token`等
+* url添加多个参数，如`token`等
 
   ```javascript
   import request from "../utils/api";
   
   export function delUser(token, uid, data) {
     return request.post({
-    	url: "/user/login",
+    	url: "/user/delete",
       data: data,
       params: {token, uid}
     })
@@ -105,7 +105,7 @@
   ```javascript
   ...
   deluser(
-  	"假装是一个token", // token
+  	"tokenbalabala", // token
     12, //uid
     {	// 这里只是为了演示强行加入data
       username: "kuari",
@@ -115,4 +115,4 @@
   ...
   ```
 
-  
+  请求时候url将变为：`http://xxx.com/user`/delete?token=tokenbalabala&uid=12
